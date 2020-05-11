@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ThemedButton from "./ThemedButton";
-import { themes, ThemeContext } from "./themes-contex";
+import { themes, ThemeContext } from "./themes-context";
 
 class App extends Component {
   state = {
