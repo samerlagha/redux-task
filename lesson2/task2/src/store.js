@@ -22,34 +22,35 @@ export const reset = () => {
 }
 
 const initialState = {
-
+  value: 0,
   history: [],
 }
+
 const counterReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case INCREMENT:
-        return {
-          ...state,
-        //   value: state.value + 1,
-          history: state.history.concat('+1'),
-        }
-      case DECREMENT:
-        return {
-          ...state,
-        //   value: state.value - 1,
-          history: state.history.concat('-1'),
-        }
-      case RESET:
-        return {
-          ...state,
-        //   value: 0,
-          history: [],
-        }
-      default:
-        return state
-    }
+  switch (action.type) {
+    case INCREMENT:
+      return {
+        ...state,
+        value: state.value + 1,
+        history: state.history.concat('+1'),
+      }
+    case DECREMENT:
+      return {
+        ...state,
+        value: state.value - 1,
+        history: state.history.concat('-1'),
+      }
+    case RESET:
+      return {
+        ...state,
+        value: 0,
+        history: [],
+      }
+    default:
+      return state
   }
-  
-  const store = createStore(counterReducer)
-  
-  export default store;
+}
+
+const store = createStore(counterReducer)
+
+export default store;

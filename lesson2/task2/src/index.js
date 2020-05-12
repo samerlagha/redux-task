@@ -6,28 +6,27 @@ const incrementBtn = document.querySelector('[data-action="increment"]');
 const resetBtn = document.querySelector('[data-action="reset"]');
 const decrementBtn = document.querySelector('[data-action="decrement"]');
 
-const onIncrement =()=>{
-    store.dispatch(increment())
+const onIncrement = () => {
+  store.dispatch(increment());
 }
 
 const onDecrement = () => {
-    store.dispatch(decrement());
-  }
-  
-  const onReset = () => {
-    store.dispatch(reset());
-  }
-incrementBtn.addEventListener('click',onIncrement);
-resetBtn.addEventListener('click', onReset);
-decrementBtn.addEventListener('click', onDecrement);
+  store.dispatch(decrement());
+}
 
-store.subscribe(()=>{
-  const state= store.getState();
-  const currentValue=state.history.reduce((acc,value)=>
-      acc+Number(value),0);
-  const historyString= state.history.join(' ');
-   resultElem.textContent=state.history.length===0
-   
-   ?''
-   : `${historyString} = ${currentValue}`;
+const onReset = () => {
+  store.dispatch(reset());
+}
+
+incrementBtn.addEventListener('click', onIncrement)
+resetBtn.addEventListener('click', onReset)
+decrementBtn.addEventListener('click', onDecrement)
+
+store.subscribe(() => {
+  const state = store.getState();
+  const currentValue = state.history.reduce((acc, value) => acc + Number(value), 0);
+  const historyString = state.history.join('');
+  resultElem.textContent = state.history.length === 0 
+    ? '' 
+    : `${historyString} = ${currentValue}`;
 })
