@@ -1,11 +1,16 @@
 import store from './store';
-import {increment , decrement ,reset}  from './counter.actions';
+import { increment, decrement, reset } from './counter.actions';
+import { addUser, deleteUser, updateUser } from './users.actions';
 
-import { addUser, updateUser, deleteUser } from './users.actions';
+store.subscribe(() => console.log(store.getState()));
 
-store.subscribe(()=>console.log(store.getState()));
-
-store.dispatch(addUser({id: 21, name: 'James'}));
-store.dispatch(addUser({id: 20, name: 'Tom'}));
-store.dispatch(updateUser(21, {age: 22}));
-store.dispatch(deleteUser(20));
+store.dispatch(addUser({ id: 76, name: 'Sarah' }));
+store.dispatch(addUser({ id: 77, name: 'Tom' }));
+store.dispatch(deleteUser(77));
+store.dispatch(addUser({ id: 78, name: 'Bob' }));
+store.dispatch(updateUser(76, { name: 'Sarah Conor' }));
+store.dispatch(increment());
+store.dispatch(decrement());
+store.dispatch(reset());
+store.dispatch(decrement());
+store.dispatch(decrement());
