@@ -30,14 +30,6 @@ const mapDispatch = {
   reset: counterActions.reset
 };
 
-// const mapDispatch = dispatch => {
-//   return {
-//     incr: () => dispatch(increment()),
-//     decr: () => dispatch(decrement()),
-//     res: () => dispatch(reset())
-//   };
-// };
-
 const connector = connect(mapState, mapDispatch); //HOC
 
 export default connector(Counter);
