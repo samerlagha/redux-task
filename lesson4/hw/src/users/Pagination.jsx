@@ -11,14 +11,6 @@ const Pagination = ({
  
     const isNextPageAvailable = (currentPage + 1) * 3 > totalItems;
   
-    console.log('pag props')
-    console.log({
-      goPrev,
-      goNext,
-      totalItems,
-      currentPage,
-      itemsPerPage,
-    })
   return (
     <div className="pagination">
       <button className="btn" disabled={isPrevPageAvailable} onClick={goPrev}>
